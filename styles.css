@@ -10,6 +10,46 @@ body {
   background-color: grey;
 }
 
+.init {
+  width: 400px;
+  height: 300px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+select {
+  width: 400px;
+  height: 50px;
+  margin: auto;
+  display: flex;
+  flex-wrap: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 10px;
+  border: black;
+  border-style: groove;
+}
+
+button {
+  width: 400px;
+  height: 100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 10px;
+  border: black;
+  border-style: groove;
+}
+
+button:hover {
+  background-color: gainsboro;
+}
+
 .memory-game {
   width: 640px;
   height: 640px;
@@ -22,7 +62,7 @@ body {
 
 .memory-card {
   width: calc(25% - 10px);
-  height: calc(25% - 10px);
+  height: calc(16.667% - 10px);
   margin: 5px;
   position: relative;
   /* border: 2px solid aqua; */
