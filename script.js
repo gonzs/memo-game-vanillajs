@@ -1,8 +1,7 @@
 var hasFlippedCard = false;
 var firstCard, secondCard;
 var lockBoard = false;
-var level;
-var unSolved;
+var level = { imagesSelected: [], unSolved: 0, speed: 0 };
 var timeSpent;
 
 function buildBoard() {
@@ -22,34 +21,17 @@ function buildBoard() {
   ];
 
   let levelOption = document.getElementById("level");
-  level = levelOption.options[levelOption.selectedIndex].value;
-  let imagesSelected = [];
-
-  switch (level) {
-    case "easy":
-      imagesSelected = pickUpImages(images, 8);
-      unSolved = 8;
-      break;
-
-    case "medium":
-      imagesSelected = pickUpImages(images, 8);
-      unSolved = 8;
-      break;
-
-    case "hard":
-      imagesSelected = pickUpImages(images, 12);
-      unSolved = 12;
-      break;
-
-    default:
-      break;
-  }
+  defineLevel(
+    level,
+    levelOption.options[levelOption.selectedIndex].value,
+    images
+  );
 
   let section = document.createElement("section");
   section.setAttribute("id", "board");
   section.classList.add("memory-game");
 
-  imagesSelected.forEach(e => {
+  level.imagesSelected.forEach(e => {
     for (let index = 0; index < 2; index++) {
       let div = document.createElement("div");
       div.classList.add("memory-card");
@@ -88,6 +70,31 @@ function buildBoard() {
   timeSpent = Date.now();
 }
 
+function defineLevel(level, levelOption, images) {
+  switch (levelOption) {
+    case "easy":
+      level.imagesSelected = pickUpImages(images, 8);
+      level.unSolved = 8;
+      level.speed = 1500;
+      break;
+
+    case "medium":
+      level.imagesSelected = pickUpImages(images, 8);
+      level.unSolved = 8;
+      level.speed = 700;
+      break;
+
+    case "hard":
+      level.imagesSelected = pickUpImages(images, 12);
+      level.unSolved = 12;
+      level.speed = 700;
+      break;
+
+    default:
+      break;
+  }
+}
+
 function flipCard() {
   if (lockBoard) return;
 
@@ -113,7 +120,7 @@ function checkForMatch() {
 
   isMatch ? disableCards() : unFlipCards();
 
-  if (unSolved === 0) {
+  if (level.unSolved === 0) {
     timeSpent = (Date.now() - timeSpent) / 1000;
     alert("SOLVED in " + timeSpent + " secs");
     window.location.reload();
@@ -123,34 +130,18 @@ function checkForMatch() {
 function disableCards() {
   firstCard.removeEventListener("click", flipCard);
   secondCard.removeEventListener("click", flipCard);
-  unSolved--;
+  level.unSolved--;
 
   resetBoard();
 }
 
 function unFlipCards() {
-  let wait;
-  switch (level) {
-    case "easy":
-      wait = 1500;
-      break;
-    case "medium":
-      wait = 700;
-      break;
-    case "hard":
-      wait = 700;
-      break;
-
-    default:
-      break;
-  }
-
   lockBoard = true;
   setTimeout(() => {
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
     resetBoard();
-  }, wait);
+  }, level.speed);
 }
 
 function resetBoard() {
