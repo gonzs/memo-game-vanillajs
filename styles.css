@@ -1,3 +1,24 @@
+/* If the screen size is 400px wide or less, set the font-size of <div> to 10px */
+@media screen and (max-width: 400px) {
+  body {
+    font-size: 10px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 20px */
+@media screen and (min-width: 601px) {
+  body {
+    font-size: 20px;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -11,36 +32,36 @@ body {
 }
 
 .init {
-  width: 400px;
-  height: 300px;
+  width: 20em;
+  height: 15em;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
 }
 
 select {
-  width: 400px;
-  height: 50px;
+  font-size: 1.5em;
+  width: 20em;
+  height: 2.5em;
   margin: auto;
   display: flex;
   flex-wrap: center;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
   border-radius: 10px;
   border: black;
   border-style: groove;
 }
 
 button {
-  width: 400px;
-  height: 100px;
+  width: 20em;
+  height: 2.5em;
   margin: auto;
   display: flex;
   flex-wrap: center;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
+  font-size: 1.5em;
   border-radius: 10px;
   border: black;
   border-style: groove;
@@ -51,8 +72,8 @@ button:hover {
 }
 
 .memory-game {
-  width: 640px;
-  height: 640px;
+  width: 32em;
+  height: 32em;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -61,9 +82,9 @@ button:hover {
 }
 
 .memory-card {
-  width: calc(25% - 10px);
-  height: calc(16.667% - 10px);
-  margin: 5px;
+  width: calc(25% - 0.5em);
+  height: calc(20% - 0.5em);
+  margin: 0.25em;
   position: relative;
   /* border: 2px solid aqua; */
   transform: scale(1);
@@ -95,5 +116,5 @@ button:hover {
 }
 
 img {
-  width: 100px;
+  width: 5em;
 }
