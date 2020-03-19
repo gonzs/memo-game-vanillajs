@@ -3,6 +3,10 @@
   body {
     font-size: 10px;
   }
+  #box {
+    top: 40%;
+    left: 25%;
+  }
 }
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
@@ -10,12 +14,20 @@
   body {
     font-size: 16px;
   }
+  #box {
+    top: 30%;
+    left: 15%;
+  }
 }
 
 /* If the screen size is 601px wide or more, set the font-size of <div> to 20px */
 @media screen and (min-width: 601px) {
   body {
     font-size: 20px;
+  }
+  #box {
+    top: 30%;
+    left: 30%;
   }
 }
 
@@ -56,28 +68,34 @@ body {
 
 #box {
   width: 20em;
-  height: 10em;
+  height: 12em;
   margin: auto;
   overflow: hidden;
   background: #f1f1f1;
-  box-shadow: 0 0 20px black;
+  box-shadow: 0 0 1.25em black;
   border-radius: 8px;
   position: absolute;
   z-index: 9999;
-  padding: 20px;
-  text-align: center;
+  padding: 1.25em;
   display: none;
-  top: 25%;
-  left: 25%;
+  justify-content: center;
+  /* align-content: center; */
+}
+
+h1 {
+  text-align: center;
 }
 
 .close {
-  font-size: 18px;
+  font-size: 1.2em;
   color: white;
-  padding: 10px 20px;
+  padding: 0px 0.7em;
   cursor: pointer;
   background: #3498db;
-  display: inline-block;
+  text-align: center;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
   border-radius: 4px;
 }
 

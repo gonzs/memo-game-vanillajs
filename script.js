@@ -167,7 +167,8 @@ function pickUpImages(images = [], number) {
 
 function popup() {
   if (c == 0) {
-    document.getElementById("box").style.display = "block";
+    document.getElementById("box").style.display = "flex";
+    document.getElementById("box").style.flexWrap = "wrap";
     document.getElementById(
       "message"
     ).innerHTML = `Solved in ${timeSpent} secs`;
