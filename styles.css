@@ -35,6 +35,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Montserrat", Georgia;
 }
 
 body {
@@ -51,6 +52,33 @@ body {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+}
+
+#box {
+  width: 20em;
+  height: 10em;
+  margin: auto;
+  overflow: hidden;
+  background: #f1f1f1;
+  box-shadow: 0 0 20px black;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 9999;
+  padding: 20px;
+  text-align: center;
+  display: none;
+  top: 25%;
+  left: 25%;
+}
+
+.close {
+  font-size: 18px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #3498db;
+  display: inline-block;
+  border-radius: 4px;
 }
 
 select {

@@ -3,6 +3,7 @@ var firstCard, secondCard;
 var lockBoard = false;
 var level = { imagesSelected: [], unSolved: 0, speed: 0 };
 var timeSpent;
+var c = 0;
 
 function buildBoard() {
   const images = [
@@ -145,8 +146,9 @@ function resetBoard() {
   if (level.unSolved === 0) {
     timeSpent = (Date.now() - timeSpent) / 1000;
     setTimeout(() => {
-      alert("SOLVED in " + timeSpent + " secs");
-      window.location.reload();
+      popup();
+      // alert(`SOLVED in ${timeSpent} secs`);
+      // window.location.reload();
     }, 500);
   }
 }
@@ -161,4 +163,18 @@ function pickUpImages(images = [], number) {
   }
 
   return auxImages;
+}
+
+function popup() {
+  if (c == 0) {
+    document.getElementById("box").style.display = "block";
+    document.getElementById(
+      "message"
+    ).innerHTML = `Solved in ${timeSpent} secs`;
+    c = 1;
+  } else {
+    document.getElementById("box").style.display = "none";
+    c = 1;
+    window.location.reload();
+  }
 }
