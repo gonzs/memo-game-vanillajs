@@ -119,12 +119,6 @@ function checkForMatch() {
   let isMatch = firstCard.dataset.fruit === secondCard.dataset.fruit;
 
   isMatch ? disableCards() : unFlipCards();
-
-  if (level.unSolved === 0) {
-    timeSpent = (Date.now() - timeSpent) / 1000;
-    alert("SOLVED in " + timeSpent + " secs");
-    window.location.reload();
-  }
 }
 
 function disableCards() {
@@ -147,6 +141,14 @@ function unFlipCards() {
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
+
+  if (level.unSolved === 0) {
+    timeSpent = (Date.now() - timeSpent) / 1000;
+    setTimeout(() => {
+      alert("SOLVED in " + timeSpent + " secs");
+      window.location.reload();
+    }, 500);
+  }
 }
 
 function pickUpImages(images = [], number) {
