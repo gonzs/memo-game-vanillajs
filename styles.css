@@ -75,7 +75,7 @@ body {
   box-shadow: 0 0 1.25em black;
   border-radius: 8px;
   position: absolute;
-  z-index: 9999;
+  /* z-index: 9999; */
   padding: 1.25em;
   display: none;
   justify-content: center;
