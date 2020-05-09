@@ -79,7 +79,6 @@ body {
   padding: 1.25em;
   display: none;
   justify-content: center;
-  /* align-content: center; */
 }
 
 h1 {
@@ -94,7 +93,6 @@ h1 {
   background: #3498db;
   text-align: center;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   border-radius: 4px;
 }
@@ -137,8 +135,6 @@ button:hover {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  /* perspective: 100px; */
-  /* border: 2px solid lime; */
 }
 
 .memory-card {
@@ -146,11 +142,7 @@ button:hover {
   height: calc(20% - 0.5em);
   margin: 0.25em;
   position: relative;
-  /* border: 2px solid aqua; */
   transform: scale(1);
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: transform 0.5s;
 }
@@ -170,7 +162,6 @@ button:hover {
   height: 100%;
   border-radius: 5px;
   position: absolute;
-  /* border: 2px solid deeppink; */
   backface-visibility: hidden;
 }
 
