@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /* If the screen size is 400px wide or less, set the font-size of <div> to 10px */
 @media screen and (max-width: 400px) {
   body {
@@ -31,6 +38,18 @@
   }
 }
 
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -46,15 +65,29 @@
 * {
   padding: 0;
   margin: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Montserrat", Georgia;
 }
 
 body {
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  background: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#ee7752),
+    color-stop(#e73c7e),
+    color-stop(#23a6d5),
+    to(#23d5ab)
+  );
+  background: -o-linear-gradient(right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background: linear-gradient(-90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
+  -webkit-animation: gradient 5s ease infinite;
   animation: gradient 5s ease infinite;
 }
 
@@ -62,7 +95,10 @@ body {
   width: 20em;
   height: 15em;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
@@ -72,12 +108,15 @@ body {
   margin: auto;
   overflow: hidden;
   background: #f1f1f1;
+  -webkit-box-shadow: 0 0 1.25em black;
   box-shadow: 0 0 1.25em black;
   border-radius: 8px;
   position: absolute;
-  /* z-index: 9999; */
+  z-index: 9999;
   padding: 1.25em;
   display: none;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -92,7 +131,11 @@ h1 {
   cursor: pointer;
   background: #3498db;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   border-radius: 4px;
 }
@@ -102,9 +145,16 @@ select {
   width: 20em;
   height: 2.5em;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: center;
   flex-wrap: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   border-radius: 10px;
   border: solid transparent;
@@ -115,9 +165,16 @@ button {
   width: 20em;
   height: 2.5em;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: center;
   flex-wrap: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   font-size: 1.5em;
   border-radius: 10px;
@@ -133,7 +190,10 @@ button:hover {
   width: 32em;
   height: 32em;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
@@ -142,17 +202,31 @@ button:hover {
   height: calc(20% - 0.5em);
   margin: 0.25em;
   position: relative;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
   transform: scale(1);
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  -o-transition: transform 0.5s;
   transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 .memory-card:active {
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
   transform: scale(0.9);
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  -o-transition: transform 0.2s;
   transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
 .memory-card.flip {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -162,10 +236,12 @@ button:hover {
   height: 100%;
   border-radius: 5px;
   position: absolute;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .front {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
