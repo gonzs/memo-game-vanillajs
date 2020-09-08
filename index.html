@@ -9,7 +9,9 @@
       href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
       rel="stylesheet"
     />
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="board.js"></script>
+    <script type="text/javascript" src="card.js"></script>
+    <script type="text/javascript" src="main.js"></script>
 
     <title>MEMO-GAME</title>
   </head>
@@ -20,14 +22,12 @@
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
-      <button onclick="buildBoard()">Click me</button>
+      <button id="init-button">Click me</button>
     </div>
 
     <div id="box">
       <h1 id="message"></h1>
-      <a class="close" onclick="popup()">Close</a>
+      <a id="close" class="close">Close</a>
     </div>
   </body>
-
-  <script type="text/javascript"></script>
 </html>
