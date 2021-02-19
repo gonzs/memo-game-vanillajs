@@ -20,9 +20,8 @@ class Board {
       "strawberry",
       "watermelon",
     ];
-    this.init = document.getElementById("init");
-    this.section = document.createElement("section");
     this.levelOption = document.getElementById("level");
+    this.section = document.createElement("section");
     this.cards;
   }
 
@@ -63,18 +62,15 @@ class Board {
     return auxImages;
   }
 
-  addBoard() {
-    this.section.setAttribute("id", "board");
-    this.section.classList.add("memory-game");
-    document.body.appendChild(this.section);
-  }
-
-  removeInit() {
-    document.body.removeChild(init);
-  }
-
-  addCard(card) {
-    this.section.appendChild(card);
+  createCards() {
+    this.level.imagesSelected.forEach((e) => {
+      for (let index = 0; index < 2; index++) {
+        // Create Card
+        let card = new Card(e);
+        // Add card to the board
+        this.section.appendChild(card.card);
+      }
+    });
   }
 
   checkForMatch() {

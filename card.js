@@ -1,5 +1,5 @@
 class Card {
-  constructor(image, flipCard) {
+  constructor(image) {
     this.card = document.createElement("div");
     this.card.classList.add("memory-card");
     this.card.dataset.fruit = image;
